@@ -69,11 +69,11 @@ public class Facet {
     }
     public boolean light()
     {
-        if (VNormal().getZ() > 0)
+        if (VNormal().getZ() <= 0)
         {
-            return false;
+            return true;
         }
-        else return true;
+        else return false;
     }
     public void drawPers(Graphics2D g, double p)
     {
@@ -83,13 +83,19 @@ public class Facet {
         t[1] = -p/(vertex[1].getZ()-p);
         t[2] = -p/(vertex[2].getZ()-p);
         t[3] = -p/(vertex[3].getZ()-p);
-        path.moveTo(vertex[0].getX()*t[0], vertex[0].getY()*t[0]);
-        path.lineTo(vertex[1].getX()*t[1], vertex[1].getY()*t[1]);
-        path.lineTo(vertex[2].getX()*t[2], vertex[2].getY()*t[2]);
-        path.lineTo(vertex[3].getX()*t[3], vertex[3].getY()*t[3]);
-        path.lineTo(vertex[0].getX()*t[0], vertex[0].getY()*t[0]);
+        R3Vector[] vertex1 = new R3Vector[4];
+        for (int i = 0; i < 4; i++)
+        {
+            vertex1[i] = new R3Vector(vertex[i].getX()*t[i], vertex[i].getY()*t[i], vertex[i].getZ());
+        }
+        path.moveTo(vertex1[0].getX(), vertex1[0].getY());
+        path.lineTo(vertex1[1].getX(), vertex1[1].getY());
+        path.lineTo(vertex1[2].getX(), vertex1[2].getY());
+        path.lineTo(vertex1[3].getX(), vertex1[3].getY());
+        path.lineTo(vertex1[0].getX(), vertex1[0].getY());
         path.closePath();
-        if (light()) {
+        Facet facet = new Facet(vertex1[0], vertex1[1], vertex1[2], vertex1[3]);
+        if (facet.light()) {
             g.setColor(color);
             g.fill(path);
         }

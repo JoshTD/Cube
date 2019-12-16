@@ -44,9 +44,9 @@ public class Main {
         f.VNormal().print();
         f.print();
         Cube c = new Cube();
-        c.scale(100);
+        c.scale(200);
         c.translate(-50, -50, -50);
-        c.rotate(50,-25,10);
+        c.rotate(125,125,125);
         Viewer viewer = new Viewer(c);
     }
 }

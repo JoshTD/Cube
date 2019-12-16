@@ -20,7 +20,7 @@ public class Viewer extends JFrame {
         g.fillRect(-getWidth()/2, -getHeight()/2, getWidth(), getHeight());
         g.setColor(Color.black);
         //cube.draw(g);
-        cube.drawPers(g,500);
+        cube.drawPers(g,600);
 
     }
 }
