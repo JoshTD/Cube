@@ -79,13 +79,10 @@ public class Facet {
     {
         Path2D path = new Path2D.Double();
         double t[] = new double[4];
-        t[0] = -p/(vertex[0].getZ()-p);
-        t[1] = -p/(vertex[1].getZ()-p);
-        t[2] = -p/(vertex[2].getZ()-p);
-        t[3] = -p/(vertex[3].getZ()-p);
         R3Vector[] vertex1 = new R3Vector[4];
         for (int i = 0; i < 4; i++)
         {
+            t[i] = -p/(vertex[i].getZ()-p);
             vertex1[i] = new R3Vector(vertex[i].getX()*t[i], vertex[i].getY()*t[i], vertex[i].getZ());
         }
         path.moveTo(vertex1[0].getX(), vertex1[0].getY());
