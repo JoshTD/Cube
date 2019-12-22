@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-        double x = 10.1, y = 20.2, z = 30.3;
+        /*double x = 10.1, y = 20.2, z = 30.3;
         R3Vector v = new R3Vector(x, y, z);
         R3Vector v1 = new R3Vector(x+10, y+10, z+10);
         R3Vector v2 = v.sum(v1);
@@ -42,11 +42,13 @@ public class Main {
         Facet f = new Facet(new R3Vector(0,0,0), new R3Vector(1,0,0), new R3Vector(1,1,0), new R3Vector(0,1,0));
         f.print();
         f.VNormal().print();
-        f.print();
-        Cube c = new Cube();
-        c.scale(200);
-        c.translate(-50, -50, -50);
-        c.rotate(130,130,130);
-        Viewer viewer = new Viewer(c);
+        f.print();*/
+
+        Cube cube = new Cube();
+        cube.scale(200);
+        cube.translate(-100, -100, -100);
+        cube.rotate(125,125,30);
+        Viewer viewer = new Viewer(cube);
+        Controller c = new Controller(cube, viewer);
     }
 }

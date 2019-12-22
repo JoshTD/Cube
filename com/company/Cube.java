@@ -42,16 +42,20 @@ public class Cube {
     }
     public void draw(Graphics2D g)
     {
+        g.setColor(Color.black);
         for (Facet facet: facets)
         {
             facet.draw(g);
         }
+
     }
     public void drawPers(Graphics2D g, double p)
     {
+        g.setColor(Color.black);
         for (Facet facet: facets)
         {
             facet.drawPers(g, p);
         }
     }
+
 }
